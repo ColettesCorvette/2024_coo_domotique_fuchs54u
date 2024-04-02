@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Telecommande {
     
     private ArrayList<Lampe> lampes;
+    private ArrayList<Hifi> chaines;
 
     public Telecommande()
     {
         this.lampes= new ArrayList<>();
+        this.chaines=new ArrayList<>();
     }
 
     public void ajouterLampe(Lampe l)
@@ -47,6 +49,30 @@ public class Telecommande {
     public String toString() {
         return "Telecommande{" +
                 "lampes=" + lampes +
+                "hifi=" + chaines +
                 '}';
     }
+
+    public void ajoutChaine(Hifi hf)
+    {
+        chaines.add(hf);
+    }
+
+    public void modulerSon(int indice)
+    {
+        if(!chaines.isEmpty())
+            chaines.get(indice).allumer();
+        else
+            return;
+    }
+
+    public void arretChaine(int indice)
+    {
+        if(!chaines.isEmpty())
+            chaines.get(indice).eteindre();
+        else
+            return;
+
+    }
+
 }
