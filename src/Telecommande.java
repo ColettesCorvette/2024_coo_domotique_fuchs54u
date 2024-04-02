@@ -16,14 +16,37 @@ public class Telecommande {
 
     public void activerLampe(int indiceLampe)
     {
-        throw new Error("code non écrit");
+        if(!lampes.isEmpty())
+            lampes.get(indiceLampe).allumer();
+        else
+            return;
     }
 
     public void desactiverLampe(int indiceLampe)
     {
-        throw new Error("code non écrit");
+        if(!lampes.isEmpty())
+            lampes.get(indiceLampe).eteindre();
+        else
+            return;
     }
 
+    public void activerTout()
+    {
+        for(Lampe l : lampes) {
+            if (!lampes.isEmpty())
+                l.allumer();
+        }
+    }
 
+    public boolean contains(Lampe l)
+    {
+        return lampes.contains(l);
+    }
 
+    @Override
+    public String toString() {
+        return "Telecommande{" +
+                "lampes=" + lampes +
+                '}';
+    }
 }
