@@ -23,5 +23,5 @@ version 1.4 :
 -
 Fin TP7 avec ajout de l'interface Appareil et code factorisé, 
 sans la partie optionnelle,
-1 test échoue n'interferrant pas avec le main,
+1 test échoue n'interferant pas avec le main,
 code menu non factorisé.
