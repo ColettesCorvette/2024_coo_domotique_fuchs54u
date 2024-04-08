@@ -47,7 +47,7 @@ public class Lampe {
 	 */
 	public String toString() {
 		String r = "";
-		if (this.allume) {
+		if (this.allume){
 			r = "On";
 		} else {
 			r = "Off";

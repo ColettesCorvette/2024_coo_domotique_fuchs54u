@@ -14,11 +14,12 @@ public class Main {
 		// utilisation de refactor (extract method)
 		// pour rendre le code plus clair
 		ajouter4Lampes(t);
+		ajouter4Chaines(t);
 
 		// test d'activation
 		t.activerLampe(1);
 		t.activerLampe(3);
-		System.out.println(t);
+		//System.out.println(t);
 
 		// gestion du menu
 		lancerMenu(t);
@@ -42,12 +43,20 @@ public class Main {
 			// demande lampe et commande
 			System.out.println("entrer le numero de la lampe");
 			int choix = sc.nextInt();
+			sc.nextLine();
 			System.out.println("entrer commande (+/-/exit)");
 			String com = sc.nextLine();
-			com = sc.nextLine();
+
+			System.out.println("entrer le numero de la chaine");
+			int choix2 = sc.nextInt();
+			sc.nextLine();
+			System.out.println("entrer commande (on/off/exit)");
+			String com2 = sc.nextLine();
+
+
 
 			// si la commande est +, on active
-			if (com.equals("+")) {
+			if (com.equals("+")){
 				System.out.println("== activer "+choix+"==");
 				t.activerLampe(choix);
 			}
@@ -65,7 +74,26 @@ public class Main {
 			else {
 				System.out.println("commande inconnue");
 			}
-			
+
+
+			if(com2.equals("on")) {
+				System.out.println("== augmenter "+choix+"==");
+				t.modulerSon(choix2);
+			}
+			else if(com2.equals("off"))
+			{
+				System.out.println("== eteindre "+choix+"==");
+				t.arretChaine(choix2);
+			}
+			else if(com2.equals("exit"))
+			{
+				System.out.println("== Fin du programme == ");
+			}
+			// commande non reconnue
+			else {
+				System.out.println("commande inconnue");
+			}
+
 			//affiche l'etat de le telecommande
 			System.out.println(t);
 		}
@@ -91,5 +119,27 @@ public class Main {
 		Lampe l4 = new Lampe("Lampe4");
 		t.ajouterLampe(l4);
 	}
+
+
+	/**
+	 * creation des objets et ajout dans la telecommande
+	 *
+	 * @param t
+	 *            telecommande dans lequelle on ajoute 4 chaines Hi-fi
+	 */
+	private static void ajouter4Chaines(Telecommande t) {
+		Hifi h1 = new Hifi();
+		t.ajoutChaine(h1);
+
+		Hifi h2 = new Hifi();
+		t.ajoutChaine(h2);
+
+		Hifi h3 = new Hifi();
+		t.ajoutChaine(h3);
+
+		Hifi h4 = new Hifi();
+		t.ajoutChaine(h4);
+	}
+
 
 }

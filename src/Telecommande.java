@@ -49,7 +49,7 @@ public class Telecommande {
     public String toString() {
         return "Telecommande{" +
                 "lampes=" + lampes +
-                "hifi=" + chaines +
+                 "Chaines="+chaines.toString() +
                 '}';
     }
 
