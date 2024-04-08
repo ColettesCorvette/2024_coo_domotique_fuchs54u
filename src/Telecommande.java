@@ -1,78 +1,48 @@
 import java.util.ArrayList;
 
-public class Telecommande {
+public class Telecommande
+{
     
-    private ArrayList<Lampe> lampes;
-    private ArrayList<Hifi> chaines;
+    private ArrayList<Appareil> appareils;
+
 
     public Telecommande()
     {
-        this.lampes= new ArrayList<>();
-        this.chaines=new ArrayList<>();
+       this.appareils = new ArrayList<>();
     }
 
-    public void ajouterLampe(Lampe l)
+    public void ajouterAppareil(Object o)
     {
-        this.lampes.add(l);
+       this.appareils.add((Appareil)o);
     }
 
-    public void activerLampe(int indiceLampe)
+    public void activerAppareil(int indice)
     {
-        if(!lampes.isEmpty())
-            lampes.get(indiceLampe).allumer();
-        else
-            return;
+        this.appareils.get(indice).allumer();
     }
 
-    public void desactiverLampe(int indiceLampe)
+    public void desactiverAppareil(int indice)
     {
-        if(!lampes.isEmpty())
-            lampes.get(indiceLampe).eteindre();
-        else
-            return;
-    }
-
-    public void activerTout()
-    {
-        for(Lampe l : lampes) {
-            if (!lampes.isEmpty())
-                l.allumer();
-        }
+        this.appareils.get(indice).eteindre();
     }
 
     public boolean contains(Lampe l)
     {
-        return lampes.contains(l);
+        return appareils.contains(l);
     }
 
-    @Override
-    public String toString() {
-        return "Telecommande{" +
-                "lampes=" + lampes +
-                 "Chaines="+chaines.toString() +
-                '}';
-    }
-
-    public void ajoutChaine(Hifi hf)
+    public String toString()
     {
-        chaines.add(hf);
+        String res="Telecommande{";
+
+        for(Appareil a : appareils)
+        {
+             if(a instanceof Lampe)
+                res+=" lampes=" + a +" ";
+
+             if(a instanceof Hifi)
+                 res+=" chaines=" + a+" ";
+        }
+        return res+'}';
     }
-
-    public void modulerSon(int indice)
-    {
-        if(!chaines.isEmpty())
-            chaines.get(indice).allumer();
-        else
-            return;
-    }
-
-    public void arretChaine(int indice)
-    {
-        if(!chaines.isEmpty())
-            chaines.get(indice).eteindre();
-        else
-            return;
-
-    }
-
 }

@@ -1,14 +1,16 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  * classe qui cree des lampes et une telecommande associee.
  */
 
-public class Main {
+public class Main{
 
 	public static void main(String args[]) {
 		// la telecommande vide
 		Telecommande t = new Telecommande();
+
 
 		// ajoute des objets
 		// utilisation de refactor (extract method)
@@ -17,8 +19,7 @@ public class Main {
 		ajouter4Chaines(t);
 
 		// test d'activation
-		t.activerLampe(1);
-		t.activerLampe(3);
+
 		//System.out.println(t);
 
 		// gestion du menu
@@ -34,7 +35,7 @@ public class Main {
 	private static void lancerMenu(Telecommande t) {
 		System.out.println(t);
 		Scanner sc = new Scanner(System.in);
-		
+
 		boolean fini=false;
 		
 		// tant qu'il y a des commandes
@@ -56,14 +57,14 @@ public class Main {
 
 
 			// si la commande est +, on active
-			if (com.equals("+")){
+			if(com.equals("+")){
 				System.out.println("== activer "+choix+"==");
-				t.activerLampe(choix);
+				t.activerAppareil(choix);
 			}
 			// si la commande est - on descactive
 			else if (com.equals("-")) {
 				System.out.println("== desactiver "+choix+"==");
-				t.desactiverLampe(choix);
+				t.desactiverAppareil(choix);
 			}
 			// si la commande est exit, on arrete
 			else if (com.equals("exit")) {
@@ -77,17 +78,18 @@ public class Main {
 
 
 			if(com2.equals("on")) {
-				System.out.println("== augmenter "+choix+"==");
-				t.modulerSon(choix2);
+				System.out.println("== allumer "+choix+"==");
+				t.activerAppareil(choix2);
 			}
 			else if(com2.equals("off"))
 			{
 				System.out.println("== eteindre "+choix+"==");
-				t.arretChaine(choix2);
+				t.desactiverAppareil(choix2);
 			}
 			else if(com2.equals("exit"))
 			{
 				System.out.println("== Fin du programme == ");
+				fini=true;
 			}
 			// commande non reconnue
 			else {
@@ -106,18 +108,12 @@ public class Main {
 	 * @param t
 	 *            telecommande dans lequelle on ajoute 4 lampes
 	 */
-	private static void ajouter4Lampes(Telecommande t) {
-		Lampe l1 = new Lampe("Lampe1");
-		t.ajouterLampe(l1);
-
-		Lampe l2 = new Lampe("Lampe2");
-		t.ajouterLampe(l2);
-
-		Lampe l3 = new Lampe("Lampe3");
-		t.ajouterLampe(l3);
-
-		Lampe l4 = new Lampe("Lampe4");
-		t.ajouterLampe(l4);
+	private static void ajouter4Lampes(Telecommande t)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			t.ajouterAppareil(new Lampe(""));
+		}
 	}
 
 
@@ -127,19 +123,12 @@ public class Main {
 	 * @param t
 	 *            telecommande dans lequelle on ajoute 4 chaines Hi-fi
 	 */
-	private static void ajouter4Chaines(Telecommande t) {
-		Hifi h1 = new Hifi();
-		t.ajoutChaine(h1);
-
-		Hifi h2 = new Hifi();
-		t.ajoutChaine(h2);
-
-		Hifi h3 = new Hifi();
-		t.ajoutChaine(h3);
-
-		Hifi h4 = new Hifi();
-		t.ajoutChaine(h4);
+	private static void ajouter4Chaines(Telecommande t)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			t.ajouterAppareil(new Hifi());
+		}
 	}
-
 
 }

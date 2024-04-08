@@ -15,7 +15,7 @@ public class TestTelecommande{
 
         Lampe l = new Lampe("lampe");
 
-        tel.ajouterLampe(l);
+        tel.ajouterAppareil(l);
 
         assertEquals(true,tel.contains(l));
 
@@ -28,8 +28,8 @@ public class TestTelecommande{
 
         Lampe[] l = {new Lampe("Luminere1"),new Lampe("Luminere2")};
 
-        tel.ajouterLampe(l[0]);
-        tel.ajouterLampe(l[1]);
+        tel.ajouterAppareil(l[0]);
+        tel.ajouterAppareil(l[1]);
 
         assertEquals(true,tel.contains(l[1]));
 
@@ -43,9 +43,9 @@ public class TestTelecommande{
 
         Lampe l = new Lampe("lampe");
 
-        tel.ajouterLampe(l);
+        tel.ajouterAppareil(l);
 
-        tel.activerLampe(0);
+        tel.activerAppareil(0);
 
         assertEquals(true,l.isAllume());
 
@@ -60,9 +60,9 @@ public class TestTelecommande{
         Lampe l = new Lampe("lampe");
         l.allumer();
 
-        tel.ajouterLampe(l);
+        tel.ajouterAppareil(l);
 
-        tel.activerLampe(0);
+        tel.activerAppareil(0);
         //tel.desactiverLampe(0);
 
         assertEquals(true,l.isAllume());
@@ -77,7 +77,7 @@ public class TestTelecommande{
 
         Lampe l = new Lampe("lampe");
 
-        tel.activerLampe(0);
+        tel.activerAppareil(0);
 
         assertEquals(false,l.isAllume());
 
