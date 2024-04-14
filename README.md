@@ -1,5 +1,10 @@
 # ColettesCorvette
 
+
+
+Ne pas tenir compte des erreurs dans le nom des commit "i.e. 5rd" 
+
+
 version 1.0 :
 -
 Ajout du squelette de la classe Telecommande.
