@@ -34,5 +34,5 @@ code menu non factorisé.
 -**version 1.5** : 
 
 Ajout de la methode activerTout(), permettant d'activer tous les appareils contenus dans l'arrayList en une fois.
-Elle ne figure pas sur l'uml du rapport.
+
 
