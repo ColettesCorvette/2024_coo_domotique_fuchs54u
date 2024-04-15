@@ -26,6 +26,12 @@ public class Telecommande
         this.appareils.get(indice).eteindre();
     }
 
+    public void activerTout()
+    {
+        for(Appareil a : this.appareils)
+            a.allumer();
+    }
+
     public boolean contains(Lampe l)
     {
         return appareils.contains(l);

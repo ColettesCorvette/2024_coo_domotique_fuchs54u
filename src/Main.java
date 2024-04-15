@@ -22,6 +22,8 @@ public class Main{
 
 		//System.out.println(t);
 
+		t.activerTout();
+
 		// gestion du menu
 		lancerMenu(t);
 	}
