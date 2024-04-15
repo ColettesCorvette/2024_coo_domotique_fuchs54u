@@ -36,4 +36,10 @@ class Hifi implements Appareil {
 		r += "Hifi:" + son;
 		return (r);
 	}
+
+	public boolean isAllume()
+	{
+		return this.son > 0;
+	}
+
 }

@@ -17,12 +17,16 @@ public class Main{
 		// pour rendre le code plus clair
 		ajouter4Lampes(t);
 		ajouter4Chaines(t);
+		ajouterCheminee(t);
+		t.activerTout();
+
+
 
 		// test d'activation
 
 		//System.out.println(t);
 
-		t.activerTout();
+
 
 		// gestion du menu
 		lancerMenu(t);
@@ -42,7 +46,8 @@ public class Main{
 		
 		// tant qu'il y a des commandes
 		while (!fini) {
-			
+
+
 			// demande lampe et commande
 			System.out.println("entrer le numero de la lampe");
 			int choix = sc.nextInt();
@@ -112,12 +117,8 @@ public class Main{
 	 */
 	private static void ajouter4Lampes(Telecommande t)
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			t.ajouterAppareil(new Lampe(""));
-		}
+		t.ajouterAppareil(new Lampe("Lampe"));
 	}
-
 
 	/**
 	 * creation des objets et ajout dans la telecommande
@@ -127,10 +128,17 @@ public class Main{
 	 */
 	private static void ajouter4Chaines(Telecommande t)
 	{
-		for (int i = 0; i < 4; i++)
-		{
-			t.ajouterAppareil(new Hifi());
-		}
+		t.ajouterAppareil(new Hifi());
 	}
 
+
+	private static void ajouterCheminee(Telecommande t)
+	{
+		t.ajouterAppareil(new ChemineeIntermediaire(new Cheminee()));
+	}
+
+
 }
+
+
+

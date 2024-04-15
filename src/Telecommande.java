@@ -43,12 +43,13 @@ public class Telecommande
 
         for(Appareil a : appareils)
         {
-             if(a instanceof Lampe)
-                res+=" lampes=" + a +" ";
-
-             if(a instanceof Hifi)
-                 res+=" chaines=" + a+" ";
+            res+=a.toString()+", ";
         }
         return res+'}';
+    }
+
+    public int getNombre()
+    {
+        return appareils.size();
     }
 }
